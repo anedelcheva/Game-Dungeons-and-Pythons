@@ -58,13 +58,13 @@ class Hero():
     def learn(self, spell):
         self.spell = spell
 
-    def atack(self, by):
+    def attack(self, by):
         if by == "weapon":
             if self.weapon is None:
                 return 0
             else:
                 return self.weapon.get_damage()
-        if by == "spell" and self.can_cast():
+        if by == "magic" and self.can_cast():
             if self.spell is None:
                 return 0
             if self.mana < self.spell.get_mana_cost():
