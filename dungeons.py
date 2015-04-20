@@ -27,7 +27,7 @@ class Dungeon:
         for row in range(len(self.matrix)):
             current_row = ''.join(self.matrix[row])
             my_map += current_row
-            matrixy_map += '\n'
+            matrix_map += '\n'
         return my_map
 
     def print_map(self):
