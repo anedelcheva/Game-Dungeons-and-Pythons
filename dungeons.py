@@ -5,6 +5,7 @@ from enemy import Enemy
 class NotAValidDirection(Exception):
     pass
 
+
 class Dungeon:
 
     def __init__(self, filename):

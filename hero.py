@@ -4,8 +4,8 @@ from spell import Spell
 
 class Hero():
 
-    def __init__(self, name="", title="", health=100, mana=100, \
-        mana_regeneration_rate=0, weapon=None, spell=None):
+    def __init__(self, name="", title="", health=100, mana=100,
+                 mana_regeneration_rate=0, weapon=None, spell=None):
         self.name = name
         self.title = title
         self.health = health
