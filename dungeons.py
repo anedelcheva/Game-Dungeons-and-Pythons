@@ -27,19 +27,34 @@ class Dungeon:
         for row in range(len(self.matrix)):
             current_row = ''.join(self.matrix[row])
             my_map += current_row
-            my_map += '\n'
+            matrixy_map += '\n'
         return my_map
 
     def print_map(self):
-        print (self.matrix_to_map())
+        print (self.my_map())
+
+    def map_to_matrix(self):
+        string = self.my_map
+        string_to_list = list(string)
+        my_matrix = []
+        row = []
+        for item in string_to_list:
+            if item != '\n':
+                row.append(item)
+            else:
+                my_matrix.append(row)
+                row = []
+        return my_matrix
 
     def spawn(self, hero):
         self.my_map = self.matrix_to_map()
         if "S" in self.my_map:
             self.my_map = self.my_map.replace("S", "H")
+            self.matrix = self.map_to_matrix()
             return True
         elif "." in self.my_map:
             self.my_map = self.my_map.replace(".", "H", 1)
+            self.matrix = self.map_to_matrix()
             return True
         else:
             return False
