@@ -28,7 +28,7 @@ class Dungeon:
         for row in range(len(self.matrix)):
             current_row = ''.join(self.matrix[row])
             my_map += current_row
-            matrix_map += '\n'
+            my_map += '\n'
         return my_map
 
     def print_map(self):
@@ -122,21 +122,24 @@ class Dungeon:
             raise NotAValidDirection
 
         if direction == 'left':
-            self.move_hero_left('left')
+            self.move_hero_left()
 
         elif direction == 'right':
-            self.move_hero_right('right')
+            self.move_hero_right()
 
         elif direction == 'up':
-            self.move_hero_up('up')
+            self.move_hero_up()
 
         elif direction == 'down':
-            self.move_hero_down('down')
+            self.move_hero_down()
 
         else:
             raise NotAValidDirection
 
     def can_move(self, direction):
+
+        hero_index_row = self.get_hero_position()[0]
+        hero_index_col = self.get_hero_position()[1]
 
         if direction == 'up':
             return hero_index_row - 1 in range(len(self.matrix)) \
@@ -156,7 +159,7 @@ class Dungeon:
         y = self.get_hero_position()[1]
         self.matrix[x][y], to_position = to_position, self.matrix[x][y]
         self.map = self.matrix_to_map()
-
+"""
 dungeon = Dungeon("level1.txt")
 dungeon.print_map()
 h = Hero(name="Bron", title="Dragonslayer", health=100, mana=100, mana_regeneration_rate=2)
@@ -168,3 +171,4 @@ print (see + 1)'''
 print (dungeon.get_hero_position())
 #print (dungeon.get_hero_position()[0])
 #print (dungeon.move_hero_right())
+"""
